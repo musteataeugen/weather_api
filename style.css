@@ -2,32 +2,43 @@ body {
     background-color: #111;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
 }
 #weather {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: baseline;   
     width: 300px;
-    height: 300px;
+    height: 400px;
     text-align: center;
     font-size: 1.5em;
     margin-top: 50px;
-    background-color: rgb(65, 190, 235);
-    color: blueviolet;
-    border-radius: 15px 15px;
+    background-image: url(./icons/sky.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: rgb(32, 11, 141);
+    border-radius: 15px;     
 }
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; 
-    border-radius: 0 0 15px 15px;
+
+.header {
+    width: 100%;
+    height: 100px;  
+    font-size: 15px;  
+    font-style: italic;
+    font-weight: 800;
 }
-div {
+
+div {    
     margin: 0 ;
-    display: flex;
-    flex-wrap: wrap; 
+    display: flex;  
+    justify-content: space-between;
     gap: 15px;
     text-align: left;       
     color: rgb(139, 10, 76);
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0;
+    font-size: 12px;  
+    font-weight: 700;
     background-color: aqua;
+    border: 1px solid rgb(128, 123, 123);
+    border-radius: 15px 15px;   
+    padding: 5px;
 }
