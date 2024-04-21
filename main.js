@@ -3,7 +3,7 @@ const weather = document.getElementById('weather')
 navigator.geolocation.getCurrentPosition((position) => {
     let lat = position.coords.latitude
     let long = position.coords.longitude
-    console.log(lat, long)
+    // console.log(lat, long)
 
     let key = `30acbf9ee5ca45a7818153329241904`
     let url = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${lat} ${long}&lang=en`
@@ -15,7 +15,7 @@ navigator.geolocation.getCurrentPosition((position) => {
         .then((json) => {
             const header = document.createElement('div')
             header.classList.add('header')
-            header.innerHTML = `${json.location.name}<img src="icons/Status-weather-clouds-icon.png"></img><br>temp:&nbsp;&nbsp;${json.current.temp_c}°C<br>${json.current.condition.text}`
+            header.innerHTML = `${json.location.localtime.split(' ')[0]}<br><br>${json.location.name}<img src="icons/Status-weather-clouds-icon.png"></img><br>temp:&nbsp;&nbsp;${json.current.temp_c}°C<br>${json.current.condition.text}`
             weather.appendChild(header)
             // console.log(json)
         })
@@ -26,7 +26,7 @@ navigator.geolocation.getCurrentPosition((position) => {
             return response.json()
         })
         .then((json) => {
-            for (let i = 0; i < 6; i++) {
+            for (let i = 1; i < 7; i++) {
                 const div = document.createElement('div')
                 div.innerHTML += `${json.days[i].datetime}<br><br>temp:&nbsp;&nbsp;${Math.round(json.days[i].tempmax)}°C<br>${json.days[i].conditions}<br><br>`
                 weather.appendChild(div)
